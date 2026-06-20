@@ -10,7 +10,7 @@ def save(grid):
 			with open(f"config{save_count}.txt", "x", encoding="utf-8") as f:
 				for cell_list in grid:
 					for cell in cell_list:
-						f.write(str([cell.x, cell.y, cell.state, cell.grid_size, cell.screen_size])+"|")
+						f.write(str([int(cell.x), int(cell.y), int(cell.state), int(cell.grid_size), int(cell.screen_size)])+"|")
 					f.write("?")
 				saved = True
 		except FileExistsError:

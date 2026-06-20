@@ -43,7 +43,7 @@ def update(grid):
 				grid[i][j].state = 0
 			elif grid[i][j].neighbours == 3:
 				grid[i][j].state = 1
-			elif grid[i][j].neighbours == 4:
+			elif grid[i][j].neighbours > 3:
 				grid[i][j].state = 0
 			else:
 				pass

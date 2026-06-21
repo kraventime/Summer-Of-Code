@@ -1,4 +1,5 @@
 import pygame
+import os
 import numpy as np
 from cell import Cell, update, reset
 
@@ -35,5 +36,12 @@ def load(file_number, grid):
 			return grid
 	except FileNotFoundError:
 		return grid
+
+def delete(file_number):
+	if os.path.exists(f"config{file_number}.txt"):
+		os.remove(f"config{file_number}.txt")
+	else:
+		pass
+
 
 		

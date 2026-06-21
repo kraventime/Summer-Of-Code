@@ -1,7 +1,8 @@
 import pygame
 import numpy as np 
 from cell import Cell, update, reset
-from save_and_load import save, load
+from save_and_load import save, load, delete
+
 
 def main():
 	pygame.init()
@@ -13,6 +14,7 @@ def main():
 	pygame.display.set_caption("Conway's Game of Life")
 	running = True
 	updating = True
+	about_to_delete = False
 
 	# Speed of Simulation
 	speed = 10 
@@ -64,7 +66,7 @@ def main():
 					save(grid)
 
 				# Loading: Primitive
-				if not updating:
+				if not updating and not about_to_delete:
 					if event.key == pygame.K_0:
 						grid = load(0, grid)
 					if event.key == pygame.K_1:
@@ -85,6 +87,45 @@ def main():
 						grid = load(8, grid)
 					if event.key == pygame.K_9:
 						grid = load(9, grid)
+
+				if event.key == pygame.K_ESCAPE:
+					about_to_delete = True
+				
+				if about_to_delete:
+					if event.key == pygame.K_0:
+						delete(0)
+						about_to_delete = False
+					if event.key == pygame.K_1:
+						delete(1)
+						about_to_delete = False
+					if event.key == pygame.K_2:
+						delete(2)
+						about_to_delete = False
+					if event.key == pygame.K_3:
+						delete(3)
+						about_to_delete = False
+					if event.key == pygame.K_4:
+						delete(4)
+						about_to_delete = False
+					if event.key == pygame.K_5:
+						delete(5)
+						about_to_delete = False
+					if event.key == pygame.K_6:
+						delete(6)
+						about_to_delete = False
+					if event.key == pygame.K_7:
+						delete(7)
+						about_to_delete = False
+					if event.key == pygame.K_8:
+						delete(8)
+						about_to_delete = False
+					if event.key == pygame.K_9:
+						delete(9)
+						about_to_delete = False
+
+				if event.key == pygame.K_r:
+					shift_x = 0
+					shift_y = 0
 									
 			if event.type == pygame.MOUSEBUTTONDOWN:
 				x, y = pygame.mouse.get_pos()

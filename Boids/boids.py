@@ -105,9 +105,9 @@ def main():
 
 		# Update each boid
 		for boid in boids:
-			boid.alignment(10000, boids)
-			boid.cohesion(10000, boids)
-			boid.separation(10000, boids)
+			boid.alignment(1, boids)
+			boid.cohesion(2, boids)
+			boid.separation(1000, boids)
 			boid.viscosity(0)
 			boid.update(delta_time)
 			screen.blit(boid.image, boid.rect)
